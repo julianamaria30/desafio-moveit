@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<robot name="borg_arm" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Import Rviz colors -->
+  <xacro:include filename="$(find borg_arm_description)/urdf/materials.xacro" />
+
+  <!-- Import all Gazebo-customization elements, including Gazebo colors -->
+  <xacro:include filename="$(find borg_arm_description)/urdf/borg_manipulator.gazebo.xacro" />
+
+  <!-- Import Transmission -->
+  <!-- <xacro:include filename="$(find borg_arm_description)/urdf/borg_manipulator.transmission.xacro" /> -->
+
+  <!-- Import URDF -->
+  <xacro:include filename="$(find borg_arm_description)/urdf/borg_manipulator.urdf.xacro" />
+
+  <!-- Import Camera plugin-->
+  <!-- <xacro:include filename="$(find open_manipulator_p_description)/urdf/open_manipulator_p_camera_plugin.urdf.xacro" /> -->
+
+  <!-- World -->
+  <!-- <link name="world"/> -->
+
+  <!-- World fixed joint-->
+  <!-- <joint name="world_fixed" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="world"/>
+    <child link="link1"/>
+  </joint> -->
+
+</robot>

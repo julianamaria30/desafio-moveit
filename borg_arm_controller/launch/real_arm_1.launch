@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <include file="$(find borg_arm_tag)/launch/pylon_camera_node.launch" />
+    <include file="$(find borg_arm_controller)/launch/dxl_controllers.launch" />
+    <include file="$(find borg_arm_controller)/launch/moveit.launch" />
+</launch>

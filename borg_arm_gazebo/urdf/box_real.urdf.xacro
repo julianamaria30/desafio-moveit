@@ -1,0 +1,149 @@
+<?xml version="1.0" ?>
+
+<robot name="box" xmlns:xacro="http://ros.org/wiki/xacro">
+
+<!---->
+<link name="box_base_link">
+
+</link>
+
+<!---->
+<joint name="base_to_box" type="fixed">
+<parent link="box_base_link"/>
+<child link="box"/>
+<origin rpy="0 0 0" xyz="0 0 0"/>
+</joint>
+
+<link name="box_base_link_1">
+
+</link>
+
+<!---->
+<joint name="base_to_box1" type="fixed">
+<parent link="box_base_link"/>
+<child link="box_base_link_1"/>
+<origin rpy="0 0 0" xyz="0.0 0.008 -0.075"/>
+</joint>
+
+<link name="box_base_link_2">
+
+</link>
+
+<!---->
+<joint name="base_to_box2" type="fixed">
+<parent link="box_base_link"/>
+<child link="box_base_link_2"/>
+<origin rpy="0 0 0" xyz="0.0 0.033 0.065"/>
+</joint>
+
+<link name="box_base_link_3">
+
+</link>
+
+<!---->
+<joint name="base_to_box3" type="fixed">
+<parent link="box_base_link"/>
+<child link="box_base_link_3"/>
+<origin rpy="0 0 0" xyz="0.0 0.008 0.14"/>
+</joint>
+
+<!---->
+<link name="box">
+  <inertial>
+    <mass value="5.611"/>
+    <origin rpy="0  0  0" xyz="0 0 0"/>
+    <inertia ixx="9.07511659e-2" ixy="0" ixz="-4.92675874e-9"
+             iyy="8.249e-2" iyz="2.532e-5" izz="6.294e-2"/>
+  </inertial>
+  <collision>
+    <origin rpy="0  0  0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://borg_arm_gazebo/meshes/modifiedBox.dae" scale="1 1 1"/>
+    </geometry>
+  </collision>
+  <visual>
+    <origin rpy="0  0  0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://borg_arm_gazebo/meshes/modifiedBox.dae" scale="1 1 1"/>
+    </geometry>
+  </visual>
+</link>
+
+<!---->
+<joint name="box_to_button" type="fixed">
+  <parent link="box"/>
+  <child link="button"/>
+  <origin rpy="0 0 0" xyz="0 -0.135 0.065"/>
+  </joint>
+
+<link name="button">
+  <inertial>
+    <mass value="0.010"/>
+    <origin rpy="0  0  0" xyz="0 0.005 0.0"/>
+    <inertia ixx="8.44878328e-7" ixy="0.0" ixz="0.0"
+             iyy="1.40315109e-6" iyz="0.0"
+             izz="8.44878328e-7"/>
+  </inertial>
+  <collision>
+    <origin rpy="0  0  0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://borg_arm_gazebo/meshes/button.dae" scale="1 1 1"/>
+    </geometry>
+  </collision>
+  <visual>
+    <origin rpy="0  0  0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://borg_arm_gazebo/meshes/button.dae" scale="1 1 1"/>
+    </geometry>
+  </visual>
+</link>
+
+<!---->
+<joint name="button_to_near_button" type="fixed">
+  <parent link="button"/>
+  <child link="near_button"/>
+  <origin rpy="0 0 0" xyz="0 -0.13 0.0"/>
+  </joint>
+<link name="near_button"/>
+
+<!---->
+<joint name="button_to_pressed_button" type="fixed">
+  <parent link="button"/>
+  <child link="pressed_button"/>
+  <origin rpy="0 0 0" xyz="0 0.03 0.0"/>
+  </joint>
+<link name="pressed_button"/>
+
+<!---->
+<joint name="button_to_aruco_id4" type="fixed">
+  <parent link="button"/>
+  <child link="aruco_id4"/>
+  <origin rpy="1.64051 -0.03491 0" xyz="0 0.03 -0.09"/> 
+  </joint>
+  <!-- <origin rpy="1.64051 -0.03491 0" xyz="0 0.03 -0.07"/>  -->
+<!---->
+<link name="aruco_id4">
+  <inertial>
+    <mass value="0.003"/>
+    <origin rpy="0  0  0" xyz="0 0 0.00025"/>
+    <inertia ixx="1.05249203e-6" ixy="0.0" ixz="0.0"
+             iyy="1.05249203e-6" iyz="0.0"
+             izz="2.10487667e-6"/>
+  </inertial>
+  <collision>
+    <origin rpy="0  0  0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://borg_arm_gazebo/meshes/aruco_id4_5x5cm.dae" scale="1.16 1.16 1.16"/>
+    </geometry>
+  </collision>
+  <visual>
+    <origin rpy="0  0  0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://borg_arm_gazebo/meshes/aruco_id4_5x5cm.dae" scale="1.16 1.16 1.16"/>
+    </geometry>
+  </visual>
+</link>
+
+
+
+</robot>

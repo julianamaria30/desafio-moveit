@@ -1,0 +1,21 @@
+<launch>
+
+     <include file="$(find borg_arm_description)/launch/spawn.launch" />
+
+     <!-- Controllers config -->
+     <rosparam command="load" file="$(find borg_arm_description)/config/joints.yaml" />
+
+     <!-- Controllers -->
+     <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" 
+          output="screen" ns="/borg_arm" args="--namespace=/borg_arm joint_state_controller arm_controller --timeout 60">
+     </node>
+
+     <!-- push robot_description to factory and spawn robot in gazebo -->
+     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+          <param name="use_gui" value="True" />
+     </node>
+
+     <!-- Show in Rviz   -->
+     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find borg_arm_description)/config/teste.rviz" />
+
+</launch>

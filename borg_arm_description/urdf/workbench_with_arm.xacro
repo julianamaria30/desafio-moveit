@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="borg_workbench">
+  <link name ="world">
+  </link>
+
+    <xacro:include filename="$(find borg_arm_description)/urdf/borg_manipulator.urdf.xacro"/>
+    <xacro:include filename="$(find borg_arm_gazebo)/urdf/workbench.urdf.xacro"/>
+
+
+    <joint name="workbench_TO_world" type="fixed">
+      <parent link="world"/>
+      <child link="workbench"/>
+      <origin rpy="0 0 0" xyz="0.0 0.0 -0.0"/>
+    </joint>
+
+    <joint name ="borg_arm_TO_workbench" type="fixed">
+        <origin rpy="0 0 1.5707" xyz="0 -0.58 1.39"/>
+        <parent link="workbench"/>
+        <child link = "arm_base_link"/>
+    </joint>
+
+</robot>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <include file="$(find borg_arm_description)/launch/simulation.launch" />
+  <include file="$(find borg_arm_description)/launch/moveit_with_workbench.launch" />
+  <include file="$(find borg_arm_gazebo)/launch/spawn_box_1.launch" />
+  <include file="$(find borg_arm_tag)/launch/marker_localization_simulation.launch" />
+  <!-- <include file="$(find borg_arm_controller)/launch/simulation_borg_arm_controller.launch" /> -->
+</launch>

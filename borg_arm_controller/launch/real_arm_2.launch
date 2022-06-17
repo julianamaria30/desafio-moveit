@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <include file="$(find borg_arm_controller)/launch/dxl_moveit_bridge.launch" />
+    <include file="$(find borg_arm_gazebo)/launch/spawn_box_tf.launch" />
+    <include file="$(find borg_arm_tag)/launch/marker_localization.launch" />
+</launch>

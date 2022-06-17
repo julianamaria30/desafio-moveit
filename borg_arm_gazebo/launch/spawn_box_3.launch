@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+<group ns="/box">
+        <!-- Robot model -->
+        <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find borg_arm_gazebo)/urdf/box_real.urdf.xacro'" />
+        <arg name="x" default="0.222758"/>
+        <arg name="y" default="0.3"/>
+        <arg name="z" default="1.007999"/>
+        <arg name="roll" default="1.5707"/>
+        <arg name="pitch" default="3.1415"/>
+        <arg name="yaw" default="0"/>
+        <node name="box_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+            args="-urdf -param robot_description -model box -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg roll)
+             -P $(arg pitch) -Y $(arg yaw)" />
+
+                <!-- Robot state publisher -->
+        <node name="box_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+        respawn="false" output="screen">
+            <remap from="/joint_states" to="/revel/joint_states" />
+        </node>
+    </group>
+
+</launch>

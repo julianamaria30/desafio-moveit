@@ -1,0 +1,6 @@
+<launch>
+
+  <node name="borg_arm_controller" pkg="borg_arm_controller" type="borg_arm_controller" respawn="false" output="screen">
+  </node>
+
+</launch>
